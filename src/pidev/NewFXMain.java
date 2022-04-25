@@ -27,7 +27,7 @@ public class NewFXMain extends Application {
        try {
             Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
             Scene scene = new Scene(root);
-            primaryStage.setResizable(false);
+            //primaryStage.setResizable(false);
             primaryStage.setTitle("Clutch.GG");
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../gui/clutch.png")));
             primaryStage.setScene(scene);

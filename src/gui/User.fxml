@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -45,5 +46,6 @@
             <Font name="System Bold Italic" size="25.0" />
          </font>
       </Label>
+      <TextField fx:id="recherchetf" layoutX="497.0" layoutY="20.0" onKeyPressed="#searchUser" onKeyReleased="#searchUser" promptText="Recherche" />
    </children>
 </AnchorPane>

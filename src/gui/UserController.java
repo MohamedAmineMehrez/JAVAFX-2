@@ -6,9 +6,16 @@
 package gui;
 
 import Service.UserService;
+import Util.MyDB;
+import entities.Role;
 import entities.User;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import static java.util.Collections.list;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,6 +32,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -35,6 +43,8 @@ import javafx.stage.Stage;
  * @author EXTRA
  */
 public class UserController implements Initializable {
+    Connection connexion=MyDB.getInstance().getConnection();
+    Statement stm;
 public static int cmd;
     @FXML
     private TableView<User> tvUser;
@@ -59,9 +69,11 @@ public static int cmd;
      @FXML
     private Button btnSupprimer;
      
-     ObservableList list ;
+     ObservableList<User> list ;
     @FXML
     private Button modiferbtn;
+    @FXML
+    private TextField recherchetf;
     /**
      * Initializes the controller class.
      */
@@ -121,4 +133,32 @@ public static int cmd;
         Logger.getLogger(RoleController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
+    @FXML
+     public void searchUser(){
+        
+          
+                
+           list.clear();
+           String sql = "Select * from user where nom like '%"+recherchetf.getText()+"%'"
+           + " UNION Select * from user where prenom like '%"+recherchetf.getText()+"%'"
+           + " UNION Select * from user where pseudo like '%"+recherchetf.getText()+"%'"
+           + " UNION Select * from user where email like '%"+recherchetf.getText()+"%'"
+           + " UNION Select * from user where num_telf like '%"+recherchetf.getText()+"%'"
+           + " UNION Select * from user where address_loc like '%"+recherchetf.getText()+"%'";
+           
+                      
+          try {
+              
+               
+                PreparedStatement pst = connexion.prepareStatement(sql);
+                     ResultSet rs = pst.executeQuery();
+                    while(rs.next()){
+                        System.out.println(""+rs.getString("email"));
+                        list.add(new User(rs.getInt("id"),rs.getInt("nom_role_id"),rs.getString("nom"),rs.getString("prenom"),rs.getString("pseudo"),rs.getString("password"),rs.getString("email"),rs.getInt("num_telf"),rs.getString("address_loc")));
+                    }
+                    tvUser.setItems(list);
+
+          }catch (SQLException ex) {
+              Logger.getLogger(RoleController.class.getName()).log(Level.SEVERE, null, ex);}
+           }
 }
