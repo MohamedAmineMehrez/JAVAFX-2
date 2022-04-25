@@ -23,12 +23,12 @@
       </TableView>
       <VBox layoutX="22.0" layoutY="112.0" prefHeight="141.0" prefWidth="127.0" spacing="15.0">
          <children>
-            <Label text="Nom jeu">
+            <Label fx:id="labeljeu" text="Nom jeu">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label text="Image jeu">
+            <Label fx:id="labelimg" prefHeight="32.0" prefWidth="94.0" text="Image ">
                <font>
                   <Font size="22.0" />
                </font>
@@ -56,21 +56,22 @@
             </Lighting>
          </effect>
       </Button>
-      <Button fx:id="btnupdate" layoutX="164.0" layoutY="293.0" mnemonicParsing="false" onAction="#update" prefHeight="39.0" prefWidth="120.0" text="mise a jour">
+      <Button fx:id="btnupdate" layoutX="154.0" layoutY="293.0" mnemonicParsing="false" onAction="#update" prefHeight="39.0" prefWidth="143.0" text="mettre à jour">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btndelete" layoutX="281.0" layoutY="293.0" mnemonicParsing="false" onAction="#Delete" prefHeight="39.0" prefWidth="103.0" text="Delete">
+      <Button fx:id="btndelete" layoutX="281.0" layoutY="293.0" mnemonicParsing="false" onAction="#Delete" prefHeight="39.0" prefWidth="127.0" text="supprime">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="188.0" layoutY="14.0" text="Gestion Jeux">
+      <Label fx:id="labelgest" layoutX="188.0" layoutY="14.0" text="Gestion Jeux">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
       <Button fx:id="tfreturn" layoutX="53.0" layoutY="409.0" mnemonicParsing="false" onAction="#RetrunInt" prefHeight="31.0" prefWidth="96.0" text="Retourner" />
+      <Button fx:id="btntraduire" layoutX="919.0" layoutY="425.0" mnemonicParsing="false" onAction="#traduire" text="Traduire" />
    </children>
 </AnchorPane>

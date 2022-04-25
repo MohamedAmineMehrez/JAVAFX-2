@@ -153,7 +153,8 @@ public static int cmd;
         public void searchRole(){      
     list.clear();
     String sql = "Select * from articles where titre like '%"+tfsearch.getText()+"%'"
-    + " UNION Select * from articles where description like '%"+tfsearch.getText()+"%'";
+    + " UNION Select * from articles where description like '%"+tfsearch.getText()+"%'"
+    + " UNION Select * from articles where image like '%"+tfsearch.getText()+"%'";
                           
     try {
               
@@ -161,7 +162,7 @@ public static int cmd;
         ResultSet rs = pst.executeQuery();
             while(rs.next()){
                 System.out.println(rs.getInt("id")+rs.getString("titre")+rs.getString("description"));
-                list.add(new Articles(rs.getInt("id"),rs.getInt("nom_jeux_id"),rs.getString("titre"),rs.getString("description")));
+                list.add(new Articles(rs.getInt("id"),rs.getInt("nom_jeux_id"),rs.getString("titre"),rs.getString("description"),rs.getString("image")));
             }
             tvarticle.setItems(list);
 
@@ -182,6 +183,7 @@ public static int cmd;
         colnomjeu.setText(GoogleTranslate.translate("en",colnomjeu.getText()));
         coltitre.setText(GoogleTranslate.translate("en",coltitre.getText()));
         btwreturn.setText(GoogleTranslate.translate("en",btwreturn.getText()));
+        
     }
     
     

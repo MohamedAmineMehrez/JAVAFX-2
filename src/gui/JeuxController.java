@@ -6,6 +6,7 @@
 package gui;
 
 import Service.jeux_service;
+import com.darkprograms.speech.translator.GoogleTranslate;
 import entities.Jeux;
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -52,6 +54,16 @@ public class JeuxController implements Initializable {
     @FXML
     private Button btndelete;
     ObservableList list ;
+    @FXML
+    private Label labeljeu;
+    @FXML
+    private Label labelimg;
+    @FXML
+    private Label labelgest;
+    @FXML
+    private Button tfreturn;
+    @FXML
+    private Button btntraduire;
 
     /**
      * Initializes the controller class.
@@ -89,6 +101,7 @@ public class JeuxController implements Initializable {
         
     }  
     
+    @FXML
     public void Select(MouseEvent event){
         int index;
        // Role r = new Role();
@@ -133,5 +146,20 @@ public class JeuxController implements Initializable {
         jeux_service ps = new jeux_service();
         ps.supprimer(cmd);
         afficher();
+    }
+
+    @FXML
+    private void traduire(ActionEvent event) throws IOException {
+        btninsert.setText(GoogleTranslate.translate("en",btninsert.getText()));
+        btndelete.setText(GoogleTranslate.translate("en",btndelete.getText()));
+        btntraduire.setText(GoogleTranslate.translate("en",btntraduire.getText()));
+        btnupdate.setText(GoogleTranslate.translate("en",btnupdate.getText()));
+        labelgest.setText(GoogleTranslate.translate("en",labelgest.getText()));
+        labelimg.setText(GoogleTranslate.translate("en",labelimg.getText()));
+        labeljeu.setText(GoogleTranslate.translate("en",labeljeu.getText()));
+        colid.setText(GoogleTranslate.translate("en",colid.getText()));
+        colimagejeu.setText(GoogleTranslate.translate("en",colimagejeu.getText()));
+        colnomjeu.setText(GoogleTranslate.translate("en",colnomjeu.getText()));
+        
     }
 }

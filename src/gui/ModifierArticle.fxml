@@ -13,34 +13,34 @@
    <children>
       <VBox layoutX="36.0" layoutY="99.0" prefHeight="313.0" prefWidth="103.0" spacing="15.0">
          <children>
-            <Label text="Titre">
+            <Label fx:id="labeltitre" text="Title">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Description">
+            <Label fx:id="labeldesc" text="Description">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Date">
+            <Label fx:id="labeldate" text="Date">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Image">
+            <Label fx:id="labelimg" text="Image">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Jeu">
+            <Label fx:id="labeljeu" text="Jeu">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <Label layoutX="214.0" layoutY="14.0" text="Modifier un article">
+      <Label fx:id="labelmodifier" layoutX="214.0" layoutY="14.0" text="Modifie article">
          <font>
             <Font name="System Bold" size="33.0" />
          </font>
@@ -54,7 +54,7 @@
             <ComboBox fx:id="cbjeu" onMouseClicked="#remplirCB" prefWidth="150.0" />
          </children>
       </VBox>
-      <Button fx:id="btnmodifier" layoutX="539.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#modifierArticle" text="modifier">
+      <Button fx:id="btnmodifier" layoutX="539.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#modifierArticle" text="modifie">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -64,5 +64,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Button fx:id="btntraduire" layoutX="802.0" layoutY="412.0" mnemonicParsing="false" onAction="#traduire" text="traduire" />
    </children>
 </AnchorPane>

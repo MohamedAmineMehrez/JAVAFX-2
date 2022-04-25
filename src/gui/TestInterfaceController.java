@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -32,7 +33,7 @@ public class TestInterfaceController implements Initializable {
     @FXML
     private Button btntraduire;
     @FXML
-    private Button btntest;
+    private Label welcomelabel;
      // i need help
     /**
      * Initializes the controller class.
@@ -85,6 +86,7 @@ public class TestInterfaceController implements Initializable {
         btnJeux.setText(GoogleTranslate.translate("en",btnJeux.getText()));
         btncommentaire.setText(GoogleTranslate.translate("en",btncommentaire.getText()));
         btnArticle.setText(GoogleTranslate.translate("en",btnArticle.getText()));
+        welcomelabel.setText(GoogleTranslate.translate("en",welcomelabel.getText()));
     }
     
 }

@@ -7,6 +7,7 @@ package gui;
 
 import Service.articles_service;
 import Util.MyDB;
+import com.darkprograms.speech.translator.GoogleTranslate;
 import entities.Articles;
 import java.io.IOException;
 import static gui.ArticleController.cmd;
@@ -33,6 +34,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -58,6 +60,20 @@ public class ModifierArticleController implements Initializable {
     private Button btnmodifier;
     @FXML
     private Button btnannuler;
+    @FXML
+    private Label labeltitre;
+    @FXML
+    private Label labeldesc;
+    @FXML
+    private Label labeldate;
+    @FXML
+    private Label labelimg;
+    @FXML
+    private Label labeljeu;
+    @FXML
+    private Label labelmodifier;
+    @FXML
+    private Button btntraduire;
 
     /**
      * Initializes the controller class.
@@ -140,6 +156,19 @@ public class ModifierArticleController implements Initializable {
             tfimg.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());}
+    }
+
+    @FXML
+    private void traduire(ActionEvent event) throws IOException {
+        labeldate.setText(GoogleTranslate.translate("en",labeldate.getText()));
+        labeldesc.setText(GoogleTranslate.translate("en",labeldesc.getText()));
+        labelimg.setText(GoogleTranslate.translate("en",labelimg.getText()));
+        labeljeu.setText(GoogleTranslate.translate("en",labeljeu.getText()));
+        labelmodifier.setText(GoogleTranslate.translate("en",labelmodifier.getText()));
+        labeltitre.setText(GoogleTranslate.translate("en",labeltitre.getText()));
+        btnannuler.setText(GoogleTranslate.translate("en",btnannuler.getText()));
+        btnmodifier.setText(GoogleTranslate.translate("en",btnmodifier.getText()));
+        btntraduire.setText(GoogleTranslate.translate("en",btntraduire.getText()));
     }
     
 }

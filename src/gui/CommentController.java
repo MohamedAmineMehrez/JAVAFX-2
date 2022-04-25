@@ -8,6 +8,7 @@ package gui;
 import Service.articles_service;
 import Service.comment_service;
 import Util.MyDB;
+import com.darkprograms.speech.translator.GoogleTranslate;
 import entities.Comment;
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +29,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -56,6 +58,12 @@ public class CommentController implements Initializable {
     ObservableList<Comment>list ;
     @FXML
     private Button btnretour;
+    @FXML
+    private Button btntraduire;
+    @FXML
+    private Label labelcomment;
+    @FXML
+    private Button btnsupprimer;
 
     /**
      * Initializes the controller class.
@@ -121,5 +129,15 @@ public class CommentController implements Initializable {
         } catch (IOException ex){
             System.out.println(ex.getMessage());
         }
+    }
+
+    @FXML
+    private void traduire(ActionEvent event) throws IOException {
+        btnretour.setText(GoogleTranslate.translate("en",btnretour.getText()));
+        btntraduire.setText(GoogleTranslate.translate("en",btntraduire.getText()));
+        btnsupprimer.setText(GoogleTranslate.translate("en",btnsupprimer.getText()));
+        labelcomment.setText(GoogleTranslate.translate("en",labelcomment.getText()));
+        colarticle.setText(GoogleTranslate.translate("en",colarticle.getText()));
+        colcomment.setText(GoogleTranslate.translate("en",colcomment.getText()));       
     }
 }
