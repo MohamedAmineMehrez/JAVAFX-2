@@ -22,8 +22,8 @@
             <TableColumn fx:id="colcomment" prefWidth="297.0" text="Commentaires" />
         </columns>
       </TableView>
-      <TextField fx:id="tfsearch" layoutX="71.0" layoutY="289.0" onKeyPressed="#searchRole" onKeyReleased="#searchRole" prefHeight="31.0" prefWidth="235.0" promptText="chercher ici...." />
-      <Button fx:id="btnsupprimer" layoutX="154.0" layoutY="389.0" mnemonicParsing="false" onAction="#Delete" prefHeight="31.0" prefWidth="105.0" text="Supprime" />
+      <TextField fx:id="tfsearch" layoutX="98.0" layoutY="258.0" onKeyPressed="#searchRole" onKeyReleased="#searchRole" prefHeight="31.0" prefWidth="235.0" promptText="chercher ici...." />
+      <Button fx:id="btnsupprimer" layoutX="163.0" layoutY="315.0" mnemonicParsing="false" onAction="#Delete" prefHeight="31.0" prefWidth="105.0" text="Supprime" />
       <Button fx:id="btnretour" layoutX="39.0" layoutY="514.0" mnemonicParsing="false" onAction="#retourinterface" prefHeight="31.0" prefWidth="86.0" text="Retour" />
       <Button fx:id="btntraduire" layoutX="946.0" layoutY="514.0" mnemonicParsing="false" onAction="#traduire" text="traduire" />
    </children>

@@ -15,27 +15,27 @@
             <Image url="@../img/cybergholy.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="welcomelabel" layoutX="781.0" layoutY="44.0" prefHeight="78.0" prefWidth="252.0" text="Bienvenu" textFill="#141414" underline="true">
+      <Label fx:id="welcomelabel" layoutX="743.0" layoutY="71.0" prefHeight="92.0" prefWidth="252.0" text="Bienvenu" textFill="#141414" underline="true">
          <font>
             <Font name="Ink Free" size="59.0" />
          </font>
       </Label>
-      <VBox prefHeight="562.0" prefWidth="275.0" spacing="10.0" style="-fx-background-color: #273842;">
+      <VBox prefHeight="562.0" prefWidth="244.0" spacing="10.0" style="-fx-background-color: #273842;">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnArticle" blendMode="OVERLAY" mnemonicParsing="false" onAction="#redirectArticle" prefHeight="81.0" prefWidth="274.0" text="Article" textAlignment="CENTER" textFill="#141414" textOverrun="CLIP">
+            <Button fx:id="btnArticle" blendMode="OVERLAY" mnemonicParsing="false" onAction="#redirectArticle" prefHeight="62.0" prefWidth="242.0" text="Article" textAlignment="CENTER" textFill="#141414" textOverrun="CLIP">
                <font>
-                  <Font size="38.0" />
+                  <Font size="28.0" />
                </font>
             </Button>
-            <Button fx:id="btnJeux" blendMode="OVERLAY" mnemonicParsing="false" onAction="#redirectJeux" prefHeight="83.0" prefWidth="276.0" text="jeu" textFill="#141414" textOverrun="CLIP">
+            <Button fx:id="btnJeux" blendMode="OVERLAY" mnemonicParsing="false" onAction="#redirectJeux" prefHeight="60.0" prefWidth="242.0" text="jeu" textFill="#141414" textOverrun="CLIP">
                <font>
-                  <Font size="38.0" />
+                  <Font size="28.0" />
                </font>
             </Button>
-            <Button fx:id="btncommentaire" blendMode="OVERLAY" contentDisplay="TEXT_ONLY" mnemonicParsing="false" onAction="#redirectioncommentaire" prefHeight="81.0" prefWidth="307.0" text="Commentaires" textFill="#141414">
+            <Button fx:id="btncommentaire" blendMode="OVERLAY" contentDisplay="TEXT_ONLY" mnemonicParsing="false" onAction="#redirectioncommentaire" prefHeight="60.0" prefWidth="242.0" text="Commentaires" textFill="#141414">
                <font>
-                  <Font size="36.0" />
+                  <Font size="28.0" />
                </font>
             </Button>
          </children>
