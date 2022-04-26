@@ -57,6 +57,7 @@ public class NewPasswordController implements Initializable {
     @FXML
     private void changepass(ActionEvent event) throws SQLException, IOException {
         String pas = passwordtf.getText();
+        System.out.println(pas);
         String confirm = comfirmtf.getText();
         /*
             *
@@ -84,30 +85,32 @@ public class NewPasswordController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Passwords don't match");
             alert.showAndWait();
-            passwordtf.clear();
-            comfirmtf.clear();
+
             return;
         } else {
             try {
                 System.out.println(email2);
                 System.out.println(u.getEmail());
-                con.createStatement().executeUpdate("update user SET password = '" + passwordtf.getText() + "' and points = NULL  WHERE email = '" +email2 + "';");
+                 System.out.println(pas);
+                con.createStatement().executeUpdate("update user SET points = NULL, password = '"+pas+"'  WHERE email = '" +email2 + "';");
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("succes");
-                 alert.setHeaderText(null);
+            
                  alert.setContentText("Password changed");
                 alert.showAndWait();
+                Parent tableViewParent = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            //This line gets the Stage information
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.show();
                 return;
             } catch (Exception e) {
                 System.out.println("erreur");
             }
 
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Login.fxml"));
-            Scene tableViewScene = new Scene(tableViewParent);
-
-            //This line gets the Stage information
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.show();
+            
         }
     }
 

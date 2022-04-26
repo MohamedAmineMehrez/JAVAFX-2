@@ -189,7 +189,7 @@ public class LoginController implements Initializable {
                 String rand = generate(7);
                 SendingMail sm = new SendingMail("This is your account redemption code : (Note: the code will expire in 2 hours) " + rand, res, "Redeem your account");
                 SendingMail.sendMail();
-                String sql="update user set points = '" + rand + "' where email = '" + res + "';";
+                //String sql="update user set points = '" + rand + "' where email = '" + res + "';";
               //  System.out.println(sql);
                // stm = connexion.createStatement();
                // stm.executeUpdate(sql);

@@ -26,7 +26,7 @@
             </Label>
          </children>
       </VBox>
-      <ImageView fitHeight="420.0" fitWidth="738.0" layoutX="-46.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="420.0" fitWidth="738.0" layoutX="-46.0" layoutY="-14.0" onTouchPressed="#forgot_password" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@bg-fixed-3.jpg" />
          </image>
@@ -66,7 +66,7 @@
             <Font size="11.0" />
          </font>
       </Button>
-      <Button layoutX="502.0" layoutY="289.0" mnemonicParsing="false" onAction="#forgot_password" text="Button" />
+      <Button layoutX="255.0" layoutY="289.0" mnemonicParsing="false" onAction="#forgot_password" style="-fx-background-color: trasparent;" text="Mot de passe oubliée?" textFill="RED" />
       <Label fx:id="emailsent1" layoutX="423.0" layoutY="64.0" prefHeight="104.0" prefWidth="210.0" textFill="#0a0a0a">
          <font>
             <Font size="24.0" />
