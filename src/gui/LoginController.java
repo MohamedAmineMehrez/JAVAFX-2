@@ -202,9 +202,9 @@ public class LoginController implements Initializable {
                 email2=res;
                 System.out.println(email2);
                  try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("NewPassword.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Codeverif.fxml"));
             Parent root = loader.load();
-            NewPasswordController controller = loader.getController();
+            CodeverifController controller = loader.getController();
             creerbtn.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

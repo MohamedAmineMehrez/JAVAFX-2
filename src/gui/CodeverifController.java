@@ -6,6 +6,7 @@
 package gui;
 import static gui.LoginController.email2;
 import Service.UserService;
+import Util.MyDB;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -14,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,9 +41,10 @@ public class CodeverifController implements Initializable {
      Statement stm;
      UserService us = new UserService();
     private ResultSet rs;
-Connection con = null;
+Connection con = MyDB.getInstance().getConnection();;
     PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
+    ResultSet resultSet ;
+    int b=1;
     /**
      * Initializes the controller class.
      */
@@ -50,16 +54,16 @@ Connection con = null;
     }    
 
     @FXML
-    private void verifier(ActionEvent event) throws IOException {
+    private void verifier(ActionEvent event) throws IOException  {
         String code=codetf.getText();
         System.out.println(code);
-      String sql = "SELECT * FROM user Where points = ? ;";
+      String sql = "SELECT * FROM `user` WHERE points='"+code+"';";
       
          try {
-                preparedStatement = con.prepareStatement(sql);
-                preparedStatement.setString( 1,code);
-                resultSet = preparedStatement.executeQuery();
-                if (!resultSet.next()) {
+                stm = con.createStatement();
+                resultSet = stm.executeQuery(sql);
+                if(!resultSet.next())  {
+                     
                    Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Echec ");
             
@@ -70,13 +74,18 @@ Connection con = null;
                 alert.setTitle("succes");
                 alert.setContentText("code verifier ");
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("NewPassword.fxml"));
-            Parent root = loader.load();
-            NewPasswordController controller = loader.getController();
+                Parent root;
+                root = loader.load();
+                NewPasswordController controller = loader.getController();
             codetf.getScene().setRoot(root);
+                    
+            
             //This line gets the Stage information
   
            
                 }
+            
+               
             } catch (SQLException ex) {
                 System.err.println(ex.getMessage());
                

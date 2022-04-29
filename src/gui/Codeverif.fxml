@@ -8,20 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.CodeverifController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CodeverifController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+      <ImageView fitHeight="448.0" fitWidth="726.0" layoutY="-48.0" pickOnBounds="true">
          <image>
             <Image url="@bg-fixed-3.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="132.0" layoutY="85.0" text="Veuillez donner le code de verification" textFill="RED">
+      <Label layoutX="195.0" layoutY="83.0" text="Veuillez donner le code de verification" textFill="RED">
          <font>
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="codetf" layoutX="226.0" layoutY="200.0" promptText="Code" style="-fx-background-color: #8B0000;" />
-      <Button fx:id="verifierbtn" layoutX="249.0" layoutY="274.0" mnemonicParsing="false" onAction="#verifier" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #8B0000;" text="verifier" textFill="WHITE" />
+      <TextField fx:id="codetf" layoutX="289.0" layoutY="164.0" promptText="Code" style="-fx-background-color: #8B0000; -fx-text-fill: #FFFFFF;" />
+      <Button fx:id="verifierbtn" layoutX="312.0" layoutY="235.0" mnemonicParsing="false" onAction="#verifier" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #8B0000;" text="verifier" textFill="WHITE" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="37.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@clutch.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
