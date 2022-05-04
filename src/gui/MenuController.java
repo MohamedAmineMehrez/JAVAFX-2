@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package gui;
-
+import static gui.LoginController.email2;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import entities.User;
 
 /**
  * FXML Controller class
@@ -22,7 +23,7 @@ import javafx.scene.control.TextField;
  * @author EXTRA
  */
 public class MenuController implements Initializable {
-
+ public static String email;
     @FXML
     private Button btnrole;
     @FXML
@@ -35,7 +36,7 @@ public class MenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        System.out.println(email2);
     }    
     public void onclickRole(ActionEvent event){
          try {
@@ -56,6 +57,7 @@ public class MenuController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+          
     }
 
 }

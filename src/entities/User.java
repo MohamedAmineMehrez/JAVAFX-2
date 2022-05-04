@@ -15,7 +15,7 @@ public class User {
 
     public User() {
     }
-
+ 
     public User( int nom_role_id, String nom, String prenom, String pseudo, String password, String email,int num_telf, String address_loc) {
         this.num_telf = num_telf;
         this.nom_role_id = nom_role_id;

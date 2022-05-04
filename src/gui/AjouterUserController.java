@@ -54,7 +54,7 @@ public class AjouterUserController implements Initializable {
     @FXML
     private Button btnAnnuler;
     @FXML
-    private TextField tfnom;
+     TextField tfnom;
     @FXML
     private TextField tfprenom;
     @FXML

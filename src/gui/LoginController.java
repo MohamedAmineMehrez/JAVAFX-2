@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 import Util.Ticker;
+import entities.User;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -46,6 +47,8 @@ import javafx.stage.Stage;
  * @author EXTRA
  */
 public class LoginController implements Initializable {
+    public static User u;
+    public static int role;
     public static String email2;
     Statement stm;
      UserService us = new UserService();
@@ -102,32 +105,42 @@ public class LoginController implements Initializable {
         con =MyDB. conDB();
     }
     @FXML
-      public void handleButtonAction(MouseEvent event) {
+      public void handleButtonAction(MouseEvent event) throws SQLException {
 
         if (event.getSource() == btnlogin) {
             //login here
             if (logIn().equals("Success")) {
                 try {
-
-                    //add you loading or delays - ;-)
-                    Node node = (Node) event.getSource();
-                    Stage stage = (Stage) node.getScene().getWindow();
-                    //stage.setMaximized(true);
-                    stage.close();
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Menu.fxml")));
-                    stage.setScene(scene);
-                    stage.show();
-
-                } catch (IOException ex) {
-                    System.err.println(ex.getMessage());
-                }
+                    email2=email.getText();
+                   String sql="SELECT * FROM user Where email ='"+email2+"';";
+                    Statement st = con.createStatement();
+                    ResultSet rs=st.executeQuery(sql);
+                    while(rs.next()){
+                        role=rs.getInt("nom_role_id");
+                        System.out.println(role);
+                    }
+                    if(role==1){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+            Parent root = loader.load();
+            MenuController.email =email.getText();
+            email.getScene().setRoot(root);}
+                    else{
+                       FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterUser.fxml"));
+            Parent root = loader.load();
+            AjouterUserController controller = loader.getController();
+            creerbtn.getScene().setRoot(root);
+           
+                    }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
             }
         }
     }
 
     private String logIn() {
-        String status = "Success";
+        String status = "";
         String email1 = email.getText();
         String password1 = password.getText();
         if(email1.isEmpty() || password1.isEmpty()) {
@@ -142,10 +155,26 @@ public class LoginController implements Initializable {
                 preparedStatement.setString(2, password1);
                 resultSet = preparedStatement.executeQuery();
                 if (!resultSet.next()) {
+                   
                     setLblError(Color.TOMATO, "Enter Correct Email/Password");
                     status = "Error";
                 } else {
                     setLblError(Color.GREEN, "Login Successful..Redirecting..");
+                    while(resultSet.next()){
+                     //u=new User();
+            u.setId(rs.getInt("id"));
+            u.setNom(rs.getString("nom"));
+            u.setPrenom(rs.getString("prenom"));
+            u.setPseudo(rs.getString("pseudo"));
+            u.setEmail(rs.getString("email"));
+            u.setPassword(rs.getString("password"));
+            u.setNom_role_id(rs.getInt("nom_role_id"));
+           role=rs.getInt("nom_role_id");
+                        System.out.println(u.getNom_role_id());
+                        System.out.println(role);
+            u.setAddress_loc(rs.getString("address_loc"));
+            u.setNum_telf(rs.getInt("num_telf"));}
+                     status = "Success";
                 }
             } catch (SQLException ex) {
                 System.err.println(ex.getMessage());
