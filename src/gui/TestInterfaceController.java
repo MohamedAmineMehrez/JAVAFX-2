@@ -34,6 +34,16 @@ public class TestInterfaceController implements Initializable {
     private Button btntraduire;
     @FXML
     private Label welcomelabel;
+    @FXML
+    private Button btnuser;
+    @FXML
+    private Button btnrole;
+    @FXML
+    private Button btnproduit;
+    @FXML
+    private Button btntournoi;
+    @FXML
+    private Button btncommande;
      // i need help
     /**
      * Initializes the controller class.
@@ -87,6 +97,12 @@ public class TestInterfaceController implements Initializable {
         btncommentaire.setText(GoogleTranslate.translate("en",btncommentaire.getText()));
         btnArticle.setText(GoogleTranslate.translate("en",btnArticle.getText()));
         welcomelabel.setText(GoogleTranslate.translate("en",welcomelabel.getText()));
+        btncommentaire.setText(GoogleTranslate.translate("en",btncommentaire.getText()));
+        btnuser.setText(GoogleTranslate.translate("en",btnuser.getText()));
+        btntournoi.setText(GoogleTranslate.translate("en",btntournoi.getText()));
+        btncommande.setText(GoogleTranslate.translate("en",btncommande.getText()));
+        btnrole.setText(GoogleTranslate.translate("en",btnrole.getText()));
+        btnproduit.setText(GoogleTranslate.translate("en",btnproduit.getText()));
     }
     
 }
